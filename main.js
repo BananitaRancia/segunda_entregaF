@@ -42,7 +42,7 @@ const contenedorOfertas = document.querySelector("#contenedor-ofertas");
 const contenedorCarrito = document.querySelector(".contenedor-carrito");
 const carritoCompra = [];
 
-//eve
+//evento
 document.addEventListener("DOMContentLoaded", function () {
 
     //electrodomesticos
@@ -71,7 +71,7 @@ function mostrarelectrodomesticos() {
         btnFavorito.textContent = "Agregar a favorito";
         btnFavorito.classList.add("btn-favorito");
 
-        //Event boton para agregar
+        //Evento boton para agregar
         btnFavorito.onclick = function () {
             agregarCarrito(electrodomestico.id);
         }
@@ -95,7 +95,7 @@ function agregarCarrito(id) {
     carritoCompra.push(electrodomesticoEncontrado);
     mostrarelectrodomesticosEncontrado(carritoCompra);
 
-    //local jsn
+    //local json o INTENTO (no estoy seguro en donde va colocado)
     let arreglo_JSON = JSON.stringify(carritoCompra);
     localStorage.setItem("carritoCompra", arreglo_JSON);
 
@@ -128,7 +128,9 @@ function mostrarelectrodomesticosEncontrado(carrito) {
          btnBorrar.textContent = "Quitar del Carrito";
          btnBorrar.classList.remove("borrarElemento");
 
-        //Eventio boton para borrar
+        //Evento boton para borrar 
+
+        //El boton borra pero despues al agregar otro electrodomestico se vuelve a agregar
         btnBorrar.onclick = function borrarElemento (e) {
                         
             let hijo = e.target;
