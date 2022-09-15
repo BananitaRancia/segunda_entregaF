@@ -40,15 +40,16 @@ const electrodomesticos = [{
 
 const contenedorOfertas = document.querySelector("#contenedor-ofertas");
 const contenedorCarrito = document.querySelector(".contenedor-carrito");
-const carritoCompra = [];
+const carritoCompra = JSON.parse(localStorage.getItem("carritoCompra")) || [];
 
 //evento
 document.addEventListener("DOMContentLoaded", function () {
+    
 
     //electrodomesticos
     mostrarelectrodomesticos()
 
-
+    mostrarelectrodomesticosEncontrado(carritoCompra);
 
 })
 
@@ -104,10 +105,7 @@ function agregarCarrito(id) {
 }
 
 function mostrarelectrodomesticosEncontrado(carrito) {
-    //Json
-    let carrito_parse = sessionStorage.getItem("carritoCompra")
-    carrito_parse = JSON.parse(carrito_parse)
-
+    
     contenedorCarrito.innerHTML = "";
     
     
@@ -142,7 +140,13 @@ function mostrarelectrodomesticosEncontrado(carrito) {
             console.log(abuelo);
 
             padre.remove();
-         }
+
+            
+            
+        }
+        
+           
+            
 
         //se agregan elementos
         divElectro.appendChild(imagenElectro);
@@ -154,5 +158,7 @@ function mostrarelectrodomesticosEncontrado(carrito) {
 
     })
 
-    
+      
+            
 }
+
